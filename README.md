@@ -1,5 +1,4 @@
-# flutter_app_sale_25042023
-
+# flutter_app_sale
 A new Flutter project.
 
 ## Getting Started

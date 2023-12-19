@@ -252,6 +252,7 @@ class _CartContainerState extends State<CartContainer> {
       height: 135,
       child: Card(
         elevation: 5,
+        color: Colors.white,
         shadowColor: Colors.blueGrey,
         child: Container(
           padding: const EdgeInsets.only(top: 5, bottom: 5),
@@ -284,15 +285,11 @@ class _CartContainerState extends State<CartContainer> {
                 ),
               ),
               Container(
-                // decoration: BoxDecoration(
-                //   color: Colors.white,
-                //   borderRadius: BorderRadius.circular(10),
-                // ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    ElevatedButton(
+                    TextButton(
                       onPressed: () {
                         if (_cartModel != null) {
                           String cartId = _cartModel!.id;
@@ -305,6 +302,9 @@ class _CartContainerState extends State<CartContainer> {
                           }
                         }
                       },
+                      style: TextButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 30),
+                      ),
                       child: const Text("-"),
                     ),
                     Text(
@@ -314,7 +314,7 @@ class _CartContainerState extends State<CartContainer> {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    ElevatedButton(
+                    TextButton(
                       onPressed: () {
                         if (_cartModel != null) {
                           String cartId = _cartModel!.id;
@@ -327,6 +327,9 @@ class _CartContainerState extends State<CartContainer> {
                           }
                         }
                       },
+                      style: TextButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 20),
+                      ),
                       child: const Text("+"),
                     ),
                   ],

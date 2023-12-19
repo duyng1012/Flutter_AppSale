@@ -264,6 +264,7 @@ class _ProductContainerState extends State<ProductContainer> {
       height: 135,
       child: Card(
         elevation: 5,
+        color: Colors.white,
         shadowColor: Colors.blueGrey,
         child: Container(
           padding: const EdgeInsets.only(top: 5, bottom: 5),
@@ -300,11 +301,10 @@ class _ProductContainerState extends State<ProductContainer> {
                                 backgroundColor:
                                     MaterialStateProperty.resolveWith((states) {
                                   if (states.contains(MaterialState.pressed)) {
-                                    return const Color.fromARGB(
-                                        200, 240, 102, 61);
+                                    return Color.fromARGB(199, 244, 248, 121);
                                   } else {
                                     return const Color.fromARGB(
-                                        230, 240, 102, 61);
+                                        199, 244, 248, 121);
                                   }
                                 }),
                                 shape: MaterialStateProperty.all(
@@ -312,7 +312,8 @@ class _ProductContainerState extends State<ProductContainer> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))))),
                             child: const Text("Thêm vào giỏ",
-                                style: TextStyle(fontSize: 13)),
+                                style: TextStyle(
+                                    fontSize: 13, color: Colors.black)),
                           ),
                         ),
                         Padding(
@@ -325,11 +326,10 @@ class _ProductContainerState extends State<ProductContainer> {
                                 backgroundColor:
                                     MaterialStateProperty.resolveWith((states) {
                                   if (states.contains(MaterialState.pressed)) {
-                                    return const Color.fromARGB(
-                                        200, 11, 22, 142);
+                                    return Color.fromARGB(199, 53, 115, 230);
                                   } else {
                                     return const Color.fromARGB(
-                                        230, 11, 22, 142);
+                                        199, 53, 115, 230);
                                   }
                                 }),
                                 shape: MaterialStateProperty.all(
@@ -337,7 +337,8 @@ class _ProductContainerState extends State<ProductContainer> {
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))))),
                             child: const Text("Chi tiết",
-                                style: TextStyle(fontSize: 13)),
+                                style: TextStyle(
+                                    fontSize: 13, color: Colors.black)),
                           ),
                         ),
                       ]),

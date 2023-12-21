@@ -241,11 +241,11 @@ class _ProductContainerState extends State<ProductContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        RefreshIndicator(
-          onRefresh: _refreshProduct,
-          child: SafeArea(
+    return RefreshIndicator(
+      onRefresh: _refreshProduct,
+      child: Stack(
+        children: [
+          SafeArea(
             child: StreamBuilder<List<ProductValueObject>>(
                 initialData: const [],
                 stream: _bloc?.productStream(),
@@ -263,9 +263,9 @@ class _ProductContainerState extends State<ProductContainer> {
                       });
                 }),
           ),
-        ),
-        LoadingWidget(bloc: _bloc),
-      ],
+          LoadingWidget(bloc: _bloc),
+        ],
+      ),
     );
   }
 

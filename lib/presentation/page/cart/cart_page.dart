@@ -30,7 +30,7 @@ class CartPage extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              AppSharePreference.setString();
+              //AppSharePreference.setString();
               Navigator.pushReplacementNamed(context, "/product");
             },
           )),

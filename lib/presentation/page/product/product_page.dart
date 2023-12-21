@@ -135,11 +135,6 @@ class _ProductContainerState extends State<ProductContainer> {
     _bloc?.eventSink.add(FetchCartEvent());
   }
 
-  Future<void> _refreshProduct() async {
-    _bloc?.eventSink.add(FetchProductsEvent());
-    _bloc?.eventSink.add(FetchCartEvent());
-  }
-
   // xem chi tiết của mặt hàng
   void _showDialog(ProductValueObject product, BuildContext context) {
     showModalBottomSheet<dynamic>(
@@ -234,6 +229,14 @@ class _ProductContainerState extends State<ProductContainer> {
         );
       },
     );
+  }
+
+  //làm mới sản phẩm
+  Future<void> _refreshProduct() async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      _bloc?.eventSink.add(FetchProductsEvent());
+      _bloc?.eventSink.add(FetchCartEvent());
+    });
   }
 
   @override

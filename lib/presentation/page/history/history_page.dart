@@ -216,9 +216,7 @@ class _HistoryContainerState extends State<HistoryContainer> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("ID: ${history.id.toString()}"),
-
-                      //Text("Products: ${history.products.length}"),
+                      Text("Mã đơn hàng: ${history.id.toString()}"),
                       Text("ID User: ${history.id_user.toString()}"),
                       Text(
                           "Tổng tiền: ${NumberFormat("#,###", "en_US").format(history.price)} đ"),
@@ -262,7 +260,7 @@ class _HistoryContainerState extends State<HistoryContainer> {
                             onPressed: () {
                               _showDialogProduct(history.products, context);
                             },
-                            child: const Text('Products'),
+                            child: const Text('Detail'),
                           ),
                         ],
                       ),

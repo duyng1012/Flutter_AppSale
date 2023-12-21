@@ -151,9 +151,9 @@ class _HistoryContainerState extends State<HistoryContainer> {
                       Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Text(product.name.toString(),
-                            maxLines: 1,
+                            maxLines: 3,
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(fontSize: 16)),
+                            style: const TextStyle(fontSize: 14)),
                       ),
                       Text("Số lượng ${product.quantity}",
                           style: const TextStyle(fontSize: 12)),

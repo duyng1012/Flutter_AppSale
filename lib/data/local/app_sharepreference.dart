@@ -12,7 +12,10 @@ class AppSharePreference {
   static String getString(String key) => _prefs?.getString(key) ?? "";
 
   static void setString({String key = "", String value = ""}) {
-    if (value.isEmpty || key.isEmpty) return;
+    if (value.isEmpty || key.isEmpty) {
+      _prefs?.clear();
+      return;
+    }
     _prefs?.setString(key, value);
   }
 }

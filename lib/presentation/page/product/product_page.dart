@@ -135,6 +135,11 @@ class _ProductContainerState extends State<ProductContainer> {
     _bloc?.eventSink.add(FetchCartEvent());
   }
 
+  Future<void> _refreshProduct() async {
+    _bloc?.eventSink.add(FetchProductsEvent());
+    _bloc?.eventSink.add(FetchCartEvent());
+  }
+
   // xem chi tiết của mặt hàng
   void _showDialog(ProductValueObject product, BuildContext context) {
     showModalBottomSheet<dynamic>(
@@ -235,23 +240,26 @@ class _ProductContainerState extends State<ProductContainer> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SafeArea(
-          child: StreamBuilder<List<ProductValueObject>>(
-              initialData: const [],
-              stream: _bloc?.productStream(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError || snapshot.data?.isEmpty == true) {
-                  return const Center(child: Text("Data empty"));
-                }
-                return ListView.builder(
-                    itemCount: snapshot.data?.length ?? 0,
-                    itemBuilder: (context, index) {
-                      return _buildItemFood(snapshot.data?[index], () {
-                        _bloc?.eventSink.add(AddCartEvent(
-                            idProduct: snapshot.data?[index].id ?? ""));
+        RefreshIndicator(
+          onRefresh: _refreshProduct,
+          child: SafeArea(
+            child: StreamBuilder<List<ProductValueObject>>(
+                initialData: const [],
+                stream: _bloc?.productStream(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError || snapshot.data?.isEmpty == true) {
+                    return const Center(child: Text("Data empty"));
+                  }
+                  return ListView.builder(
+                      itemCount: snapshot.data?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return _buildItemFood(snapshot.data?[index], () {
+                          _bloc?.eventSink.add(AddCartEvent(
+                              idProduct: snapshot.data?[index].id ?? ""));
+                        });
                       });
-                    });
-              }),
+                }),
+          ),
         ),
         LoadingWidget(bloc: _bloc),
       ],

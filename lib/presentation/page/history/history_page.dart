@@ -153,7 +153,7 @@ class _HistoryContainerState extends State<HistoryContainer> {
                         child: Text(product.name.toString(),
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(fontSize: 14)),
+                            style: const TextStyle(fontSize: 12)),
                       ),
                       Text("Số lượng ${product.quantity}",
                           style: const TextStyle(fontSize: 12)),
@@ -217,8 +217,6 @@ class _HistoryContainerState extends State<HistoryContainer> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("ID: ${history.id.toString()}"),
-
-                      //Text("Products: ${history.products.length}"),
                       Text("ID User: ${history.id_user.toString()}"),
                       Text(
                           "Tổng tiền: ${NumberFormat("#,###", "en_US").format(history.price)} đ"),
